@@ -1,0 +1,105 @@
+# --- Python Virtual Environment ---
+# Typically named venv, .venv, env, .env, etc.
+# Add the specific name(s) you use.
+venv/
+.venv/
+env/
+.env/
+ENV/
+# Include other variations if needed:
+# myenv/
+# virtual/
+
+# --- Python Bytecode and Cache ---
+# Compiled Python files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- Distribution / Packaging ---
+# Build artifacts
+build/
+dist/
+*.egg-info/
+*.egg
+*.whl
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+# Setuptools specific
+/*.tar.gz
+/MANIFEST
+
+# --- Secrets and Configuration (that shouldn't be committed) ---
+# Environment variables file - often contains sensitive keys
+.env
+# Configuration files that might contain secrets (commit templates instead, e.g., config.example.ini)
+# config.ini
+# settings.local.py
+
+# --- Testing ---
+# Coverage reports
+.coverage
+.coverage.*
+htmlcov/
+nosetests.xml
+coverage.xml
+# Pytest cache
+.pytest_cache/
+# Tox environment
+.tox/
+
+# --- Type Checker Cache ---
+# Mypy
+.mypy_cache/
+# Pytype
+.pytype/
+
+# --- IDE / Editor Configuration ---
+# JetBrains PyCharm / IntelliJ
+.idea/
+# Visual Studio Code
+.vscode/
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+# Eclipse
+.project
+.pydevproject
+# Netbeans
+nbproject/
+# Vim
+*~
+*.swp
+*.swo
+
+# --- OS-specific files ---
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# --- Other ---
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints
+# Temporary files, logs, etc.
+*.log
+*.tmp
+*.bak
+# If using databases like SQLite locally for development
+*.sqlite3
+*.db
+
+# --- Optional: Specific Libraries ---
+# Example: Django migrations cache (if necessary, usually committed)
+# */migrations/__pycache__/
+# Example: Celery beat schedule file
+# celerybeat-schedule
+
+# --- Conda ---
+# If using Conda environments (less common to put IN the project dir, but just in case)
+# conda
