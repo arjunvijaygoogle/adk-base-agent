@@ -15,7 +15,7 @@
 variable "project_name" {
   type        = string
   description = "Project name used as a base for resource naming"
-  default     = "agent"
+  default     = "adk-agent"
 }
 
 variable "dev_project_id" {
@@ -32,13 +32,13 @@ variable "region" {
 variable "telemetry_logs_filter" {
   type        = string
   description = "Log Sink filter for capturing telemetry data. Captures logs with the `traceloop.association.properties.log_type` attribute set to `tracing`."
-  default     = "labels.service_name=\"agent\" labels.type=\"agent_telemetry\""
+  default     = "labels.service_name=\"adk-agent\" labels.type=\"agent_telemetry\""
 }
 
 variable "feedback_logs_filter" {
   type        = string
   description = "Log Sink filter for capturing feedback data. Captures logs where the `log_type` field is `feedback`."
-  default     = "jsonPayload.log_type=\"feedback\" jsonPayload.service_name=\"agent\""
+  default     = "jsonPayload.log_type=\"feedback\" jsonPayload.service_name=\"adk-agent\""
 }
 
 

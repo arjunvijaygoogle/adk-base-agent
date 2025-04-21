@@ -27,5 +27,5 @@ class Feedback(BaseModel):
     text: str | None = ""
     invocation_id: str
     log_type: Literal["feedback"] = "feedback"
-    service_name: Literal["agent"] = "agent"
+    service_name: Literal["adk-agent"] = "adk-agent"
     user_id: str = ""

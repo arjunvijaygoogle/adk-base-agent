@@ -13,7 +13,8 @@
 # limitations under the License.
 
 steps:
-  - name: "python:3.11-slim" 
+  # Install uv package manager and sync dependencies
+  - name: "python:3.11-slim"
     id: install-dependencies
     entrypoint: /bin/bash
     args:
@@ -23,25 +24,28 @@ steps:
     env:
       - 'PATH=/usr/local/bin:/usr/bin:~/.local/bin'
 
+  # Run unit tests using pytest
   - name: "python:3.11-slim"
-    id: trigger-deployment
+    id: unit-tests
     entrypoint: /bin/bash
     args:
       - "-c"
       - |
-        uv export --no-hashes --no-sources --no-header --no-dev --no-emit-project --no-annotate --frozen > .requirements.txt
-        uv run app/agent_engine_app.py \
-          --project ${_PROD_PROJECT_ID} \
-          --location ${_REGION} \
-          --set-env-vars="COMMIT_SHA=${COMMIT_SHA}"
+        uv run pytest tests/unit
     env:
       - 'PATH=/usr/local/bin:/usr/bin:~/.local/bin'
 
-substitutions:
-  _PROD_PROJECT_ID: YOUR_PROD_PROJECT_ID
-  _REGION: us-central1
+  # Run integration tests
+  - name: "python:3.11-slim"
+    id: integration-tests
+    entrypoint: /bin/bash
+    args:
+      - "-c"
+      - |
+        uv run pytest tests/integration
+    env:
+      - 'PATH=/usr/local/bin:/usr/bin:~/.local/bin'
 
-logsBucket: gs://${PROJECT_ID}-agent-logs-data/build-logs
+logsBucket: gs://${PROJECT_ID}-adk-agent-logs-data/build-logs
 options:
-  substitutionOption: ALLOW_LOOSE
   defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET

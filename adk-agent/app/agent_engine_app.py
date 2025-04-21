@@ -155,7 +155,7 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "--agent-name",
-        default="agent",
+        default="adk-agent",
         help="Name for the agent engine",
     )
     parser.add_argument(
